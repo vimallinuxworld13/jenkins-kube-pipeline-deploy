@@ -4,7 +4,7 @@ agent any
   stages {
     stage('abc'){
       steps {
-        echo "hi"
+        sh "date"
       }
     }
   }
