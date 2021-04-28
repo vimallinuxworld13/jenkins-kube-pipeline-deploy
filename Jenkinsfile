@@ -3,8 +3,14 @@ pipeline {
 agent any
   stages {
     stage('abc'){
+      when {
+        expression {
+          false
+        }
+      }
+      
       steps {
-      kubernetesDeploy(configs: "deploy.yml" , kubeconfigId: "mykubeconfigfile" )
+        sh "kubectl  apply -f  deploy.yml  --kubeconfig  /admin.conf"
       }
     }
   }
